@@ -958,6 +958,10 @@ table.data-table tbody tr:active{background:rgba(255,255,255,0.02);}
    =================================================================== */
 const APP_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwQt5kdqQkWf_-pGNEOwYV4raKvxV9VHfmybGSgc7PmIg17r_VB_VOy92hJKB33fQ2R/exec';
 
+// STANDINGS LOADER CONFIG — CHANGE THIS TO YOUR SHEET
+const STANDINGS_SHEET_ID = '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms'; // example public sheet
+const STANDINGS_SHEET_NAME = 'Sheet1';
+
 const POINTS = { EXACT: 5, CORRECT_RESULT: 1, CHAMPION: 10 };
 const LOCK_MINUTES = 10;
 
@@ -2278,11 +2282,178 @@ function setupTabs(){
 }
 
 /* ===================================================================
+   STANDINGS LOADER — loads from Google Sheet CSV
+   =================================================================== */
+async function loadStandingsFromSheet() {
+  const container = document.getElementById('leaderboardContent');
+  if (!container) return;
+  
+  container.innerHTML = '<div class="empty-state"><span class="es-icon">⏳</span><div class="es-text">Loading standings from Google Sheet...</div></div>';
+  
+  try {
+    const url = `https://docs.google.com/spreadsheets/d/${STANDINGS_SHEET_ID}/gviz/tq?tqx=out:csv&sheet=${STANDINGS_SHEET_NAME}`;
+    const response = await fetch(url);
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    
+    const csvText = await response.text();
+    const rows = parseCSV(csvText);
+    
+    if (rows.length < 2) {
+      throw new Error('No data found in sheet');
+    }
+    
+    const headers = rows[0];
+    const dataRows = rows.slice(1).filter(r => r.some(c => c && c.trim() !== ''));
+    
+    const standingsData = dataRows.map(row => {
+      const obj = {};
+      headers.forEach((h, i) => {
+        obj[h.trim()] = (row[i] || '').trim();
+      });
+      return obj;
+    });
+    
+    renderStandingsTable(standingsData);
+    
+  } catch (err) {
+    console.error(err);
+    container.innerHTML = `
+      <div class="empty-state">
+        <span class="es-icon">⚠️</span>
+        <div class="es-text">Failed to load standings: ${err.message}</div>
+        <div style="font-size:0.7rem;margin-top:8px;color:#4a6b52;">
+          Make sure your sheet is published as CSV.<br>
+          File → Share → Publish to web → CSV
+        </div>
+      </div>
+    `;
+  }
+}
+
+function parseCSV(text) {
+  const lines = [];
+  let current = '';
+  let inQuotes = false;
+  for (let i = 0; i < text.length; i++) {
+    const ch = text[i];
+    if (ch === '"') {
+      if (inQuotes && text[i+1] === '"') { current += '"'; i++; }
+      else inQuotes = !inQuotes;
+    } else if (ch === ',' && !inQuotes) {
+      lines.push(current);
+      current = '';
+    } else if ((ch === '\n' || ch === '\r') && !inQuotes) {
+      if (current || lines.length) { lines.push(current); current = ''; }
+      if (text[i] === '\r' && text[i+1] === '\n') i++;
+    } else {
+      current += ch;
+    }
+  }
+  if (current || lines.length) lines.push(current);
+  
+  const result = [];
+  let row = [];
+  for (let i = 0; i < lines.length; i++) {
+    if (lines[i] === '' && i === lines.length-1) continue;
+    row.push(lines[i]);
+    if (row.length === 6) { result.push(row); row = []; }
+  }
+  if (row.length) result.push(row);
+  return result;
+}
+
+function renderStandingsTable(data) {
+  const container = document.getElementById('leaderboardContent');
+  if (!container) return;
+  
+  if (!data || data.length === 0) {
+    container.innerHTML = `<div class="empty-state"><span class="es-icon">📭</span><div class="es-text">No standings data found</div></div>`;
+    return;
+  }
+  
+  const sample = data[0];
+  const keys = Object.keys(sample);
+  
+  const colMap = {
+    rank: findKey(keys, ['rank', '#', 'pos', 'position']),
+    name: findKey(keys, ['name', 'player', 'team', 'user']),
+    points: findKey(keys, ['points', 'pts', 'score', 'total']),
+    played: findKey(keys, ['played', 'pld', 'matches', 'games']),
+    exact: findKey(keys, ['exact', 'perfect', 'bullseye']),
+    correct: findKey(keys, ['correct', 'result', 'hit']),
+  };
+  
+  const rankKey = colMap.rank || keys[0] || 'Rank';
+  const nameKey = colMap.name || (keys[1] || 'Name');
+  const pointsKey = colMap.points || (keys[2] || 'Points');
+  
+  let html = `<div class="table-wrap"><table class="data-table"><thead><tr>
+    <th>#</th>
+    <th>Player</th>
+    <th>⭐ Pts</th>
+    <th>🎯 Exact</th>
+    <th>✅ Correct</th>
+    <th>📊 Played</th>
+  </tr></thead><tbody>`;
+  
+  const sorted = [...data].sort((a, b) => {
+    const pa = parseFloat(a[pointsKey]) || 0;
+    const pb = parseFloat(b[pointsKey]) || 0;
+    return pb - pa;
+  });
+  
+  sorted.forEach((row, i) => {
+    const rank = i + 1;
+    const rankClass = rank === 1 ? 'rank-1' : rank === 2 ? 'rank-2' : rank === 3 ? 'rank-3' : '';
+    
+    const name = row[nameKey] || '—';
+    const points = parseFloat(row[pointsKey]) || 0;
+    const exact = row[colMap.exact] || '—';
+    const correct = row[colMap.correct] || '—';
+    const played = row[colMap.played] || '—';
+    
+    const badgeClass = rank === 1 ? 'gold' : rank === 2 ? 'silver' : rank === 3 ? 'bronze' : '';
+    const isMe = currentUser && name.toLowerCase() === currentUser.name?.toLowerCase();
+    
+    html += `<tr class="${isMe ? 'me' : ''}">
+      <td class="${rankClass}">${rank}</td>
+      <td><strong>${name}</strong> ${rank <= 3 ? ['🥇','🥈','🥉'][rank-1] : ''}${isMe ? ' 👈' : ''}</td>
+      <td><span class="pts-badge ${badgeClass}">${points}</span></td>
+      <td>${exact}</td>
+      <td>${correct}</td>
+      <td>${played}</td>
+    </tr>`;
+  });
+  
+  html += '</tbody></table></div>';
+  container.innerHTML = html;
+}
+
+function findKey(keys, aliases) {
+  const lowerKeys = keys.map(k => k.toLowerCase().trim());
+  for (const alias of aliases) {
+    const idx = lowerKeys.indexOf(alias.toLowerCase());
+    if (idx !== -1) return keys[idx];
+  }
+  for (const alias of aliases) {
+    const found = keys.find(k => k.toLowerCase().includes(alias.toLowerCase()));
+    if (found) return found;
+  }
+  return null;
+}
+
+/* ===================================================================
    INIT
    =================================================================== */
 document.addEventListener('DOMContentLoaded', function(){
   setupTabs();
   loadPlayers();
+  
+  // Load standings from Google Sheet when Standings tab is clicked
+  // Also load on page load if standings tab is active
+  setTimeout(() => {
+    loadStandingsFromSheet();
+  }, 1000);
 
   const pinInput = document.getElementById('pinInput');
   if (pinInput){
