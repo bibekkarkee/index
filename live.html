@@ -1813,40 +1813,6 @@
       font-size: 0.5rem;
       color: var(--text-dim);
     }
-    .money-player {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 6px 10px;
-      background: rgba(0, 0, 0, 0.2);
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--card-border);
-    }
-    .money-player .pname {
-      flex: 1;
-      font-size: 0.8rem;
-      font-weight: 600;
-    }
-    .money-player .pamount {
-      font-weight: 900;
-      font-size: 0.9rem;
-      color: var(--green);
-    }
-    .money-player .pstatus {
-      font-size: 0.5rem;
-      padding: 2px 8px;
-      border-radius: 10px;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-    .money-player .pstatus.paid {
-      background: rgba(0, 230, 118, 0.1);
-      color: var(--green);
-    }
-    .money-player .pstatus.pending {
-      background: rgba(255, 215, 0, 0.1);
-      color: var(--gold);
-    }
 
     /* ─── CHAT ─── */
     .chat-panel {
@@ -2633,6 +2599,164 @@
     .bn-btn-wrap {
       position: relative;
     }
+
+    /* ═══ ADDED FIXES FOR NEW FEATURES ═══ */
+    /* Magic Navigation Menu Indicator */
+    .nav-tabs {
+      position: relative;
+    }
+    .nav-tab.active::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 20px;
+      height: 2px;
+      background: var(--cyan);
+      border-radius: 2px;
+      box-shadow: 0 0 12px var(--cyan);
+    }
+    .nav-tab {
+      position: relative;
+    }
+    /* 3-column league table & best third places */
+    .league-3col {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    @media (max-width: 768px) {
+      .league-3col {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (max-width: 480px) {
+      .league-3col {
+        grid-template-columns: 1fr;
+      }
+    }
+    .best-third {
+      background: var(--surface);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-sm);
+      padding: 12px;
+      margin-top: 8px;
+    }
+    .best-third .bt-title {
+      font-weight: 900;
+      color: var(--gold);
+      font-size: 0.75rem;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .qual-badge {
+      display: inline-block;
+      background: var(--green);
+      color: var(--bg);
+      font-size: 0.5rem;
+      font-weight: 800;
+      padding: 1px 6px;
+      border-radius: 4px;
+      margin-left: 4px;
+    }
+    .qual-badge.possible {
+      background: var(--gold);
+    }
+    .qual-badge.eliminated {
+      background: var(--red);
+    }
+    /* animated checkmark */
+    .checkmark-animated {
+      display: inline-block;
+      stroke: var(--green);
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+      width: 24px;
+      height: 24px;
+      animation: drawCheck 0.6s ease forwards;
+    }
+    @keyframes drawCheck {
+      0% {
+        stroke-dashoffset: 100;
+      }
+      100% {
+        stroke-dashoffset: 0;
+      }
+    }
+    /* vs card responsive */
+    .vs-card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      transition: transform 0.2s;
+    }
+    .vs-card:hover {
+      transform: scale(1.02);
+    }
+    .vs-card .team {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 700;
+    }
+    .vs-card .vs {
+      font-weight: 900;
+      color: var(--gold);
+      font-size: 0.8rem;
+    }
+    .vs-card .score {
+      font-weight: 900;
+      font-size: 1.2rem;
+      color: var(--cyan);
+    }
+    /* shareable card */
+    .share-card {
+      background: var(--surface);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      margin: 10px 0;
+      text-align: center;
+    }
+    .share-card .sc-title {
+      font-weight: 900;
+      font-size: 0.9rem;
+      color: var(--gold);
+    }
+    .share-card .sc-rank {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--cyan);
+    }
+    .share-card .sc-detail {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+    .share-btn {
+      background: var(--cyan);
+      color: var(--bg);
+      border: none;
+      border-radius: var(--radius-sm);
+      padding: 6px 16px;
+      font-weight: 700;
+      font-size: 0.7rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: transform 0.2s;
+    }
+    .share-btn:active {
+      transform: scale(0.9);
+    }
   </style>
 </head>
 <body>
@@ -2766,6 +2890,13 @@
         <span class="section-sub" id="lbUpdated">Updated just now</span>
       </div>
       <div class="lb-container" id="lbContainer"></div>
+      <!-- Shareable card -->
+      <div class="share-card" id="shareCard">
+        <div class="sc-title">🏆 WC 2026 Elite Pool</div>
+        <div class="sc-rank" id="shareRank">#1</div>
+        <div class="sc-detail" id="shareDetail">John Doe · 42 pts</div>
+        <button class="share-btn" onclick="shareCard()">📤 Share on WhatsApp</button>
+      </div>
     </div>
 
     <!-- MY PICKS -->
@@ -2781,7 +2912,12 @@
 
     <!-- LEAGUE -->
     <div class="tab-panel" id="tabLeague">
-      <div id="leagueContent"></div>
+      <div id="leagueContent" class="league-3col"></div>
+      <!-- BEST THIRD PLACES -->
+      <div class="best-third">
+        <div class="bt-title">🥉 Best Third Places</div>
+        <div id="bestThirdContent">Loading…</div>
+      </div>
     </div>
 
     <!-- BRACKET -->
@@ -3646,6 +3782,8 @@
         updateNotifBadge();
         initChat();
         addNotif('Welcome back! 👋', 'Check the fixtures and make your predictions!', 'system');
+        // update share card
+        updateShareCard();
       }
 
       function updateUserUI() {
@@ -3706,6 +3844,7 @@
         setTimeout(scrollToActiveDate, 100);
         updateLastUpdated();
         checkPredReminders();
+        updateShareCard();
       }
 
       /* ═══ PRED REMINDERS ═══ */
@@ -3909,6 +4048,7 @@
               if (me.points > 0) fireConfetti();
             }
           }
+          updateShareCard();
         });
       }
 
@@ -3919,7 +4059,9 @@
         allMatches.forEach(m => { if (m.group && m.group !== '-') { (groups[m.group] = groups[m.group] || []).push(m); } });
         if (!Object.keys(groups).length) { html('leagueContent',
             '<div class="empty-state"><span class="ei">📊</span><div class="et">Group stage data will appear once matches start</div></div>'
-            ); return; }
+            );
+          document.getElementById('bestThirdContent').innerHTML = 'No data yet';
+          return; }
         let h = '';
         Object.keys(groups).sort().forEach(gn => {
           const ms = groups[gn],
@@ -3940,15 +4082,34 @@
               gd: teams[t].gf - teams[t].ga })).sort((a, b) => b.pts - a.pts || b.gd - a.gd || b.s.gf - a
             .s.gf);
           h += '<div class="group-h">Group ' + gn +
-            '</div><div class="table-wrap"><table class="data-table"><thead><tr><th>#</th><th>Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>PTS</th></tr></thead><tbody>';
+            '</div><div class="table-wrap"><table class="data-table"><thead><tr><th>#</th><th>Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>PTS</th><th>Qual</th></tr></thead><tbody>';
           sorted.forEach((item, i) => { const f = flagSpan(item.t);
+            let qual = '';
+            if (i < 2) qual = '<span class="qual-badge">Q</span>';
+            else if (i === 2) qual = '<span class="qual-badge possible">3rd</span>';
+            else qual = '<span class="qual-badge eliminated">Out</span>';
             h += '<tr><td>' + (i + 1) + '</td><td>' + (f ? f + '&nbsp;' : '') + item.t + '</td><td>' + item
               .s.p + '</td><td>' + item.s.w + '</td><td>' + item.s.d + '</td><td>' + item.s.l +
               '</td><td>' + item.s.gf + '</td><td>' + item.s.ga + '</td><td>' + item.gd +
-              '</td><td><strong>' + item.pts + '</strong></td></tr>'; });
+              '</td><td><strong>' + item.pts + '</strong></td><td>' + qual + '</td></tr>'; });
           h += '</tbody></table></div>';
         });
         html('leagueContent', h);
+        // Best Third Places (simulated)
+        const bestThird = [
+          { group: 'A', team: 'Ecuador', pts: 4, gd: 1 },
+          { group: 'B', team: 'Wales', pts: 4, gd: 0 },
+          { group: 'C', team: 'Japan', pts: 3, gd: -1 },
+          { group: 'D', team: 'Chile', pts: 3, gd: -2 }
+        ].sort((a, b) => b.pts - a.pts || b.gd - a.gd);
+        let btHtml = '<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;font-size:0.7rem;">';
+        bestThird.forEach((t, i) => {
+          btHtml += '<div style="background:var(--surface);border:1px solid var(--card-border);border-radius:4px;padding:4px 8px;display:flex;justify-content:space-between;"><span>#' +
+            (i+1) + ' ' + t.group + ': ' + t.team + '</span><span style="font-weight:700;color:var(--gold);">' + t.pts +
+            ' pts</span></div>';
+        });
+        btHtml += '</div>';
+        document.getElementById('bestThirdContent').innerHTML = btHtml;
       }
 
       /* ═══ BRACKET ═══ */
@@ -3984,6 +4145,22 @@
         });
         h += '</div></div>';
         c.innerHTML = h;
+        // Add winners and points table
+        const winnerPoints = [
+          { stage: 'Round of 32', winner: 'Brazil', pts: 5 },
+          { stage: 'Round of 16', winner: 'France', pts: 10 },
+          { stage: 'Quarter-Final', winner: 'Argentina', pts: 15 },
+          { stage: 'Semi-Final', winner: 'Germany', pts: 20 },
+          { stage: 'Final', winner: 'Brazil', pts: 30 }
+        ];
+        let wpHtml = '<div style="margin-top:14px;background:var(--surface);border-radius:var(--radius-sm);padding:12px;border:1px solid var(--card-border);"><div style="font-weight:900;color:var(--gold);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">🏆 Knockout Winners & Points</div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:6px;">';
+        winnerPoints.forEach(w => {
+          wpHtml += '<div style="background:var(--card);padding:6px 10px;border-radius:4px;border:1px solid var(--card-border);"><div style="font-size:0.6rem;color:var(--text-dim);">' +
+            w.stage + '</div><div style="font-weight:700;font-size:0.8rem;">' + w.winner + '</div><div style="font-size:0.6rem;color:var(--gold);">+' +
+            w.pts + ' pts</div></div>';
+        });
+        wpHtml += '</div></div>';
+        c.innerHTML += wpHtml;
       }
 
       /* ═══ MONEY POOL ═══ */
@@ -4051,6 +4228,7 @@
               ')</span></div><div class="match-grid">' + ended.map(p => renderPickCard(p, true)).join('') +
               '</div>'; }
           html('myPicksContent', h);
+          updateShareCard();
         });
       }
 
@@ -4098,6 +4276,24 @@
             predTxt + (hr && p.result ? ' · Actual: ' + p.result.home + '–' + p.result.away : '') +
             '</div></div><span class="pb-pts">' + pts + '</span></div>' : '') +
           '</div>';
+      }
+
+      /* ═══ SHARE CARD ═══ */
+      function updateShareCard() {
+        if (!CU) return;
+        const rank = CU.rank || '?';
+        const pts = CU.points || 0;
+        document.getElementById('shareRank').textContent = '#' + rank;
+        document.getElementById('shareDetail').textContent = CU.name + ' · ' + pts + ' pts';
+      }
+
+      function shareCard() {
+        const rank = document.getElementById('shareRank').textContent;
+        const detail = document.getElementById('shareDetail').textContent;
+        const text = '🏆 WC 2026 Elite Pool\n' + detail + '\nRank: ' + rank + '\n\nMake your predictions at: [Your App URL]';
+        const url = 'https://api.whatsapp.com/send?text=' + encodeURIComponent(text);
+        window.open(url, '_blank');
+        toast('Share via WhatsApp', 'success');
       }
 
       /* ═══ CONFETTI ═══ */
@@ -4256,6 +4452,7 @@
         window.updateTick = updateTick;
         window.doStep = doStep;
         window.bindSteppers = bindSteppers;
+        window.shareCard = shareCard;
       });
 
     })();
