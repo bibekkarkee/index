@@ -14,6 +14,65 @@
     #liveClock{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--cyan);background:var(--cdim);padding:3px 10px;border-radius:20px;border:1px solid var(--border2);letter-spacing:.06em;white-space:nowrap;}
     #loginScreen{min-height:100dvh;display:flex;align-items:center;justify-content:center;padding:20px;position:relative;z-index:10;}.lorb{position:absolute;border-radius:50%;filter:blur(120px);pointer-events:none;}.lorb.a{width:500px;height:500px;background:var(--cyan);opacity:.05;top:-200px;right:-200px;animation:orbFloat 12s ease-in-out infinite;}.lorb.b{width:400px;height:400px;background:var(--gold);opacity:.04;bottom:-150px;left:-150px;animation:orbFloat 14s ease-in-out infinite reverse 2s;}@keyframes orbFloat{0%,100%{transform:translate(0,0);}33%{transform:translate(40px,-30px);}66%{transform:translate(-30px,40px);}}.login-card{width:100%;max-width:420px;position:relative;z-index:2;background:rgba(14,34,51,.92);backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);border:1px solid var(--border2);border-radius:var(--rxl);overflow:hidden;animation:loginRise .6s var(--ease) both;box-shadow:var(--shadow),var(--cglow);}@keyframes loginRise{from{opacity:0;transform:translateY(30px) scale(.96);}to{opacity:1;transform:none;}}.lc-top{padding:30px 26px 0;text-align:center;}.lc-icon{width:64px;height:64px;margin:0 auto 14px;border-radius:50%;background:linear-gradient(135deg,var(--cdim),var(--gdim));border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:1.8rem;animation:floatIcon 3s ease-in-out infinite;}@keyframes floatIcon{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}.lc-title{font-family:'Oswald',sans-serif;font-size:2rem;font-weight:700;letter-spacing:.04em;line-height:1.1;background:linear-gradient(135deg,var(--cyan),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}.lc-sub{font-size:.82rem;color:var(--t2);margin-top:4px;}.lc-pcount{display:inline-flex;align-items:center;gap:6px;font-size:.68rem;color:var(--cyan);background:var(--cdim);padding:3px 12px;border-radius:20px;border:1px solid var(--border);margin:12px 0 18px;}.lc-body{padding:0 26px 26px;}.lf{margin-bottom:14px;}.lf-lbl{display:block;font-size:.62rem;text-transform:uppercase;letter-spacing:.08em;color:var(--t3);font-weight:700;margin-bottom:5px;}.lf-wrap{display:flex;align-items:center;background:rgba(0,0,0,.3);border:1px solid var(--border);border-radius:var(--r);transition:border-color var(--t),box-shadow var(--t);min-height:50px;}.lf-wrap:focus-within{border-color:var(--cyan);box-shadow:0 0 0 3px var(--cdim);}.lf-ic{padding:0 12px;color:var(--t3);font-size:1rem;flex-shrink:0;}.lf-wrap select,.lf-wrap input{flex:1;min-height:50px;padding:12px 14px 12px 0;background:transparent;border:none;outline:none;color:var(--text);font-size:.95rem;-webkit-appearance:none;appearance:none;}.lf-wrap select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2300D4FF' stroke-width='1.6' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:38px;}.lf-wrap select option{background:var(--surface);}#pinInput{letter-spacing:8px;text-align:center;font-weight:800;font-size:1.1rem;font-family:'JetBrains Mono',monospace;}.pin-dots{display:flex;gap:8px;justify-content:center;padding:5px 0 0;height:0;overflow:hidden;transition:height .2s;}.pin-dots.show{height:22px;}.pin-dot{width:10px;height:10px;border-radius:50%;background:var(--border);transition:all .2s;}.pin-dot.filled{background:var(--cyan);box-shadow:var(--cglow);}.btn-login{width:100%;min-height:52px;border:none;border-radius:var(--r);background:linear-gradient(135deg,var(--cyan),#0099cc);color:var(--bg);font-weight:800;font-size:1rem;letter-spacing:.04em;transition:transform var(--t),box-shadow var(--t);box-shadow:0 4px 20px rgba(0,212,255,.25);margin-top:4px;position:relative;overflow:hidden;}.btn-login::before{content:'';position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.2) 50%,transparent 70%);background-size:300% 100%;background-position:200% 0;transition:background-position .6s var(--ease);}.btn-login:active:not(:disabled)::before{background-position:-100% 0;}.btn-login:active:not(:disabled){transform:scale(.97);}.btn-login:disabled{opacity:.5;cursor:not-allowed;}.login-msg{padding:9px 12px;border-radius:var(--r);margin-top:10px;font-size:.78rem;font-weight:600;display:flex;align-items:center;gap:8px;animation:msgFade .2s var(--ease);}@keyframes msgFade{from{opacity:0;transform:translateY(-4px);}to{opacity:1;transform:none;}}.login-msg.error{background:rgba(255,82,82,.1);color:var(--red);border:1px solid rgba(255,82,82,.2);}.login-msg.info{background:var(--cdim);color:var(--cyan);border:1px solid var(--border);}.lc-foot{border-top:1px solid var(--border);padding:12px 26px;display:flex;align-items:center;justify-content:space-between;gap:10px;}.lc-secure{font-size:.58rem;color:var(--t3);text-transform:uppercase;letter-spacing:.06em;}.lc-badge{font-size:.6rem;color:var(--gold);background:var(--gdim);padding:3px 10px;border-radius:20px;border:1px solid rgba(255,215,0,.15);font-weight:700;}
     #tourOverlay{position:fixed;inset:0;z-index:8000;pointer-events:none;}.tour-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.75);backdrop-filter:blur(4px);}.tour-spotlight{position:fixed;border-radius:12px;border:2px solid var(--cyan);box-shadow:0 0 0 9999px rgba(0,0,0,.7),var(--cglow);transition:all .4s var(--ease);}.tour-tooltip{position:fixed;background:var(--surface2);border:1px solid var(--border2);border-radius:var(--rm);padding:16px;max-width:280px;box-shadow:var(--shadow),var(--cglow);animation:tooltipIn .3s var(--ease);}@keyframes tooltipIn{from{opacity:0;transform:scale(.9);}to{opacity:1;transform:scale(1);}}.tour-tooltip h4{font-family:'Oswald',sans-serif;font-size:1rem;font-weight:600;color:var(--cyan);margin-bottom:6px;}.tour-tooltip p{font-size:.75rem;color:var(--t2);line-height:1.5;margin-bottom:12px;}.tour-actions{display:flex;gap:8px;}.tour-btn{flex:1;min-height:36px;border:none;border-radius:var(--r);font-size:.76rem;font-weight:700;cursor:pointer;}.tour-btn.skip{background:rgba(255,255,255,.06);color:var(--t2);}.tour-btn.next{background:linear-gradient(135deg,var(--cyan),#0099cc);color:var(--bg);}.tour-steps{display:flex;gap:4px;justify-content:center;margin-bottom:10px;}.tour-step-dot{width:6px;height:6px;border-radius:50%;background:var(--border2);}.tour-step-dot.active{background:var(--cyan);}
+    
+    /* Fix for tour overlay blocking clicks - keeps tour functional */
+#tourOverlay {
+  pointer-events: none !important;
+}
+
+#tourOverlay .tour-backdrop,
+#tourOverlay .tour-spotlight {
+  pointer-events: none !important;
+}
+
+#tourOverlay .tour-tooltip {
+  pointer-events: auto !important;
+}
+
+#tourOverlay .tour-actions .tour-btn {
+  pointer-events: auto !important;
+  cursor: pointer;
+}
+
+/* Ensure nav tabs and buttons are above the overlay */
+.nav-tabs,
+.nav-tab,
+.tb-btn,
+.bottom-nav .bn-btn,
+.date-nav-btn,
+.chip,
+.btn-login,
+.sp-btn,
+.sp-save-btn,
+.lb-share,
+.share-btn,
+.share-close,
+.btn-cyan,
+.btn-ghost,
+.champ-save-btn,
+.lg-tab,
+.bracket-controls button,
+#matchesContainer .mcard,
+#matchesContainer .sp-btn,
+#matchesContainer .sp-save-btn {
+  position: relative;
+  z-index: 10;
+}
+
+/* Nav ink should not block clicks */
+.nav-ink {
+  pointer-events: none !important;
+}
+
+/* Bottom nav should be above overlay */
+.bottom-nav {
+  z-index: 500;
+}
+
+/* Top bar should be above overlay */
+.topbar {
+  z-index: 200;
+}
     #dashScreen{display:none;min-height:100dvh;padding:0 16px calc(72px + env(safe-area-inset-bottom));max-width:1100px;margin:0 auto;}.topbar{display:flex;align-items:center;justify-content:space-between;padding:10px 0 14px;position:sticky;top:0;z-index:200;background:rgba(6,20,31,.94);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border);margin:0 -16px;padding:10px 16px 10px;}.tb-brand{display:flex;align-items:center;gap:8px;}.tb-logo{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--cyan),var(--gold));display:flex;align-items:center;justify-content:center;font-size:.9rem;font-weight:900;color:var(--bg);}.tb-title{font-family:'Oswald',sans-serif;font-weight:700;font-size:1rem;letter-spacing:.04em;background:linear-gradient(135deg,var(--cyan),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}.tb-right{display:flex;align-items:center;gap:6px;}.tb-user{display:flex;align-items:center;gap:6px;padding:4px 10px 4px 4px;background:var(--surface);border:1px solid var(--border);border-radius:30px;}.tb-av{width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,var(--cyan),var(--gold));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.68rem;color:var(--bg);}.tb-name{font-size:.72rem;font-weight:600;max-width:70px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}.tb-btn{width:34px;height:34px;border-radius:50%;border:1px solid var(--border);background:transparent;color:var(--t2);display:flex;align-items:center;justify-content:center;font-size:.85rem;transition:all var(--t);position:relative;}.tb-btn:hover{border-color:var(--cyan);color:var(--cyan);}.tb-btn:active{transform:scale(.88);}.tb-btn.spin{animation:spin .7s linear infinite;}.bdot{position:absolute;top:-2px;right:-2px;width:13px;height:13px;background:var(--red);border-radius:50%;font-size:.42rem;font-weight:800;color:#fff;display:flex;align-items:center;justify-content:center;border:2px solid var(--bg);}.bdot.hidden{display:none;}
     .nav-wrap{position:relative;margin:12px 0 16px;}.nav-tabs{display:flex;gap:2px;background:var(--surface);border:1px solid var(--border);border-radius:var(--rm);padding:4px;overflow-x:auto;scrollbar-width:none;position:relative;}.nav-tabs::-webkit-scrollbar{display:none;}.nav-ink{position:absolute;top:4px;border-radius:var(--r);background:linear-gradient(135deg,var(--cyan),#0099cc);box-shadow:var(--cglow);transition:left .3s var(--ease),width .3s var(--ease);pointer-events:none;z-index:0;}.nav-tab{flex-shrink:0;min-height:36px;padding:0 14px;border:none;border-radius:var(--r);background:transparent;color:var(--t2);font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;transition:color var(--t);white-space:nowrap;position:relative;z-index:1;}.nav-tab.active{color:var(--bg);}.nav-tab:active{transform:scale(.95);}
     .stats-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0 16px;}@media(max-width:640px){.stats-strip{grid-template-columns:repeat(2,1fr);}}.stat-card{background:rgba(14,34,51,.8);border:1px solid var(--border);border-radius:var(--rm);padding:12px 8px;text-align:center;transition:transform var(--t),border-color var(--t);position:relative;overflow:hidden;}.stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--gold));opacity:0;transition:opacity var(--t);}.stat-card:hover::before{opacity:1;}.stat-card:hover{transform:translateY(-2px);border-color:var(--border2);}.sc-icon{font-size:1rem;display:block;margin-bottom:3px;}.sc-val{font-family:'Oswald',sans-serif;font-size:clamp(1.2rem,3vw,1.8rem);font-weight:700;color:var(--gold);line-height:1;font-variant-numeric:tabular-nums;}.sc-val .sc-of{font-size:.45em;color:var(--t3);font-weight:400;font-family:'Inter';}.sc-lbl{font-size:.48rem;text-transform:uppercase;letter-spacing:.06em;color:var(--t3);margin-top:3px;font-weight:700;}
@@ -2854,620 +2913,469 @@ function animateNumbers() {
 
 
 
-  // Helper function to generate matchday stats from matches
-function generateMatchdayStatsFromMatches() {
-  const stages = ['Group Stage', 'Round of 32', 'Round of 16', 'Quarter-Final', 'Semi-Final', 'Third Place', 'Final'];
-  const stagePoints = {};
-  const stagePredictions = {};
-  const stageAccuracy = {};
-  const stageMatches = {};
+
+function loadStageLeaderboard(stage, btn) {
+  document.querySelectorAll('#tabMatchday .chip').forEach(c => c.classList.remove('active'));
+  if (btn) btn.classList.add('active');
   
-  let totalPoints = 0;
-  let exactScores = 0;
-  let correctResults = 0;
-  let wrongPredictions = 0;
-  let championBonus = 0;
-  let totalPredictionCount = 0;
-  let totalMatches = allMatches.length;
-  let pendingPredictions = 0;
-  let totalCorrectPredictions = 0;
+  const container = el('stageLBContainer');
+  if (!container) return;
   
-  // Calculate points from matches
-  allMatches.forEach(match => {
-    const stage = match.stage || 'Group Stage';
-    
-    if (!stagePredictions[stage]) {
-      stagePredictions[stage] = { total: 0, correct: 0, exact: 0, points: 0, wrong: 0, pending: 0 };
-      stageMatches[stage] = 0;
+  container.innerHTML = `
+    <div class="empty-state">
+      <span class="ei">⏳</span>
+      <div class="et">Loading ${stage}...</div>
+    </div>
+  `;
+  
+  // Fetch stage-specific leaderboard data from API
+  callAPI('getStageLeaderboard', { stage }, (err, res) => {
+    if (err) {
+      // If API fails, try to generate from matches with all players
+      generateAndRenderStageData(stage, container);
+      return;
     }
     
-    stageMatches[stage]++;
-    
-    // Count predictions made
-    if (match.prediction && match.prediction.home !== null && match.prediction.home !== undefined) {
-      totalPredictionCount++;
-      stagePredictions[stage].total++;
-      
-      // Check if match has result
-      if (hasResult(match)) {
-        const predHome = parseInt(match.prediction.home);
-        const predAway = parseInt(match.prediction.away);
-        const actualHome = parseInt(match.result.home);
-        const actualAway = parseInt(match.result.away);
-        
-        if (!isNaN(predHome) && !isNaN(predAway) && !isNaN(actualHome) && !isNaN(actualAway)) {
-          let points = 0;
-          let isExact = false;
-          let isCorrect = false;
-          
-          // Check exact score
-          if (predHome === actualHome && predAway === actualAway) {
-            points = 5;
-            isExact = true;
-            exactScores++;
-            stagePredictions[stage].exact++;
-            totalCorrectPredictions++;
-          } 
-          // Check correct result (win/draw/loss)
-          else if (
-            (predHome > predAway && actualHome > actualAway) ||
-            (predHome < predAway && actualHome < actualAway) ||
-            (predHome === predAway && actualHome === actualAway)
-          ) {
-            points = 1;
-            isCorrect = true;
-            correctResults++;
-            stagePredictions[stage].correct++;
-            totalCorrectPredictions++;
-          } else {
-            wrongPredictions++;
-            stagePredictions[stage].wrong++;
-          }
-          
-          totalPoints += points;
-          stagePoints[stage] = (stagePoints[stage] || 0) + points;
-          stagePredictions[stage].points += points;
-        }
-      } else {
-        pendingPredictions++;
-        stagePredictions[stage].pending++;
-      }
+    if (res?.leaderboard?.length) {
+      // Render the data from API
+      renderStageLeaderboard(container, res.leaderboard, stage);
+    } else {
+      // Try to generate from matches
+      generateAndRenderStageData(stage, container);
     }
   });
-  
-  // Calculate accuracy for each stage
-  stages.forEach(s => {
-    const data = stagePredictions[s] || { total: 0, correct: 0, exact: 0, points: 0, wrong: 0, pending: 0 };
-    const totalPreds = data.total || 0;
-    const correctPreds = data.correct || 0;
-    const exactPreds = data.exact || 0;
-    stageAccuracy[s] = totalPreds > 0 ? Math.round(((correctPreds + exactPreds) / totalPreds) * 100) : 0;
-  });
-  
-  // Check champion bonus
-  if (CU && CU.champion) {
-    const finalMatch = allMatches.find(m => m.stage === 'Final' && hasResult(m));
-    if (finalMatch && finalMatch.result) {
-      const winner = parseInt(finalMatch.result.home) > parseInt(finalMatch.result.away) 
-        ? finalMatch.home 
-        : parseInt(finalMatch.result.away) > parseInt(finalMatch.result.home) 
-          ? finalMatch.away 
-          : null;
-      
-      if (winner && winner === CU.champion) {
-        championBonus = 10;
-        totalPoints += championBonus;
-        stagePoints['Final'] = (stagePoints['Final'] || 0) + championBonus;
-      }
-    }
-  }
-  
-  // Find best and worst matchday
-  let bestMatchday = '—';
-  let worstMatchday = '—';
-  let maxPts = 0;
-  let minPts = Infinity;
-  
-  stages.forEach(s => {
-    const pts = stagePoints[s] || 0;
-    if (pts > maxPts) {
-      maxPts = pts;
-      bestMatchday = s;
-    }
-    if (pts < minPts && pts > 0) {
-      minPts = pts;
-      worstMatchday = s;
-    }
-  });
-  
-  if (worstMatchday === '—') worstMatchday = '—';
-  
-  const totalPredsMade = totalPredictionCount;
-  const totalPredsPossible = totalMatches;
-  const pendingPreds = pendingPredictions;
-  
-  return {
-    totalPoints: totalPoints,
-    championBonus: championBonus,
-    predictionPoints: totalPoints - championBonus,
-    exactScores: exactScores,
-    correctResults: correctResults,
-    wrongPredictions: wrongPredictions,
-    bestMatchday: bestMatchday,
-    worstMatchday: worstMatchday,
-    avgPoints: stages.length > 0 ? Math.round(totalPoints / stages.length) : 0,
-    stagePoints: stagePoints,
-    stagePredictions: stagePredictions,
-    stageAccuracy: stageAccuracy,
-    stageMatches: stageMatches,
-    currentStage: 'Group Stage',
-    totalPredictions: totalPredsMade,
-    totalMatches: totalPredsPossible,
-    pendingPredictions: pendingPreds,
-    accuracy: totalPredsMade > 0 ? Math.round(((exactScores + correctResults) / totalPredsMade) * 100) : 0,
-    totalCorrect: totalCorrectPredictions
-  };
 }
 
-function renderMatchdayStats(container, data) {
-  const stages = ['Group Stage', 'Round of 32', 'Round of 16', 'Quarter-Final', 'Semi-Final', 'Third Place', 'Final'];
-  
-  // Safely get values with fallbacks
-  const total = data.totalPoints || 0;
-  const champBonus = data.championBonus || 0;
-  const exact = data.exactScores || 0;
-  const correct = data.correctResults || 0;
-  const wrong = data.wrongPredictions || 0;
-  const best = data.bestMatchday || '—';
-  const worst = data.worstMatchday || '—';
-  const avg = data.avgPoints || 0;
-  const totalPreds = data.totalPredictions || 0;
-  const totalMatches = data.totalMatches || allMatches.length;
-  const pendingPreds = data.pendingPredictions || 0;
-  const accuracy = data.accuracy || 0;
-  const totalCorrect = data.totalCorrect || 0;
-  const stagePoints = data.stagePoints || {};
-  const stagePredictions = data.stagePredictions || {};
-  const stageAccuracy = data.stageAccuracy || {};
-  const stageMatches = data.stageMatches || {};
+// Generate stage data from matches and all players
+function generateAndRenderStageData(stage, container) {
+  // First get all players from leaderboard
+  callAPI('getLeaderboard', null, (err, leaderboardRes) => {
+    if (err || !leaderboardRes?.leaderboard?.length) {
+      container.innerHTML = '<div class="empty-state"><span class="ei">📭</span><div class="et">No player data available</div></div>';
+      return;
+    }
+    
+    const allPlayers = leaderboardRes.leaderboard;
+    const stageMatches = allMatches.filter(m => m.stage === stage);
+    
+    if (!stageMatches.length) {
+      container.innerHTML = '<div class="empty-state"><span class="ei">📭</span><div class="et">No matches found for ' + stage + '</div></div>';
+      return;
+    }
+    
+    // Build player stats from matches
+    const playersMap = {};
+    allPlayers.forEach(player => {
+      playersMap[player.id] = {
+        id: player.id,
+        name: player.name || 'Unknown',
+        points: 0,
+        exact: 0,
+        correct: 0,
+        total: 0,
+        wrong: 0,
+        pending: 0,
+        accuracy: 0
+      };
+    });
+    
+    // Process each match in this stage
+    stageMatches.forEach(match => {
+      const hasResult_ = hasResult(match);
+      
+      // Check if match has player predictions data
+      if (match.playerPredictions && match.playerPredictions.length > 0) {
+        match.playerPredictions.forEach(pred => {
+          if (playersMap[pred.playerId]) {
+            const player = playersMap[pred.playerId];
+            player.total++;
+            
+            if (hasResult_) {
+              const predHome = parseInt(pred.home);
+              const predAway = parseInt(pred.away);
+              const actualHome = parseInt(match.result.home);
+              const actualAway = parseInt(match.result.away);
+              
+              if (!isNaN(predHome) && !isNaN(predAway) && !isNaN(actualHome) && !isNaN(actualAway)) {
+                if (predHome === actualHome && predAway === actualAway) {
+                  player.points += 5;
+                  player.exact++;
+                } else if (
+                  (predHome > predAway && actualHome > actualAway) ||
+                  (predHome < predAway && actualHome < actualAway) ||
+                  (predHome === predAway && actualHome === actualAway)
+                ) {
+                  player.points += 1;
+                  player.correct++;
+                } else {
+                  player.wrong++;
+                }
+              }
+            } else {
+              player.pending++;
+            }
+          }
+        });
+      } 
+      // If no playerPredictions, check if current user has prediction
+      else if (CU && match.prediction && match.prediction.home !== null && match.prediction.home !== undefined) {
+        if (playersMap[CU.id]) {
+          const player = playersMap[CU.id];
+          player.total++;
+          
+          if (hasResult_) {
+            const predHome = parseInt(match.prediction.home);
+            const predAway = parseInt(match.prediction.away);
+            const actualHome = parseInt(match.result.home);
+            const actualAway = parseInt(match.result.away);
+            
+            if (!isNaN(predHome) && !isNaN(predAway) && !isNaN(actualHome) && !isNaN(actualAway)) {
+              if (predHome === actualHome && predAway === actualAway) {
+                player.points += 5;
+                player.exact++;
+              } else if (
+                (predHome > predAway && actualHome > actualAway) ||
+                (predHome < predAway && actualHome < actualAway) ||
+                (predHome === predAway && actualHome === actualAway)
+              ) {
+                player.points += 1;
+                player.correct++;
+              } else {
+                player.wrong++;
+              }
+            }
+          } else {
+            player.pending++;
+          }
+        }
+      }
+    });
+    
+    // Calculate accuracy for each player
+    Object.values(playersMap).forEach(p => {
+      const totalPreds = p.exact + p.correct + p.wrong;
+      p.accuracy = totalPreds > 0 ? Math.round(((p.exact + p.correct) / totalPreds) * 100) : 0;
+    });
+    
+    // Filter and sort
+    const activePlayers = Object.values(playersMap)
+      .filter(p => p.total > 0)
+      .sort((a, b) => b.points - a.points);
+    
+    if (activePlayers.length === 0) {
+      container.innerHTML = '<div class="empty-state"><span class="ei">📭</span><div class="et">No predictions found for ' + stage + '</div></div>';
+    } else {
+      renderStageLeaderboard(container, activePlayers, stage);
+    }
+  });
+}
 
+function renderStageLeaderboard(container, leaderboard, stage) {
+  const hasData = leaderboard && leaderboard.length > 0;
+  
   let h = `
     <style>
-      .matchday-stats {
-        animation: fadeInUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+      .stage-lb-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.72rem;
+        animation: fadeInUp 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
       }
       
-      @keyframes fadeInUp {
-        from { opacity: 0; transform: translateY(30px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-      
-      .stat-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 12px;
-        margin-bottom: 20px;
-      }
-      
-      .stat-card-pro {
-        background: rgba(14, 34, 51, 0.8);
-        border: 1px solid rgba(0, 212, 255, 0.08);
-        border-radius: 16px;
-        padding: 16px 12px;
-        text-align: center;
-        transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-        position: relative;
-        overflow: hidden;
-        cursor: default;
-      }
-      
-      .stat-card-pro::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 2px;
-        background: linear-gradient(90deg, var(--cyan), var(--gold));
-        opacity: 0;
-        transition: opacity 0.3s ease;
-      }
-      
-      .stat-card-pro:hover::before {
-        opacity: 1;
-      }
-      
-      .stat-card-pro:hover {
-        transform: translateY(-4px);
-        border-color: rgba(0, 212, 255, 0.2);
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-      }
-      
-      .stat-card-pro .sc-icon {
-        font-size: 1.4rem;
-        display: block;
-        margin-bottom: 4px;
-      }
-      
-      .stat-card-pro .sc-val {
-        font-family: 'Oswald', sans-serif;
-        font-size: 1.8rem;
-        font-weight: 700;
-        color: var(--gold);
-        line-height: 1.2;
-      }
-      
-      .stat-card-pro .sc-val .sc-of {
-        font-size: 0.45em;
+      .stage-lb-table th {
+        text-align: left;
+        padding: 8px 10px;
         color: var(--t3);
-        font-weight: 400;
-        font-family: 'Inter';
-      }
-      
-      .stat-card-pro .sc-lbl {
         font-size: 0.5rem;
         text-transform: uppercase;
         letter-spacing: 0.06em;
-        color: var(--t3);
-        margin-top: 4px;
         font-weight: 700;
+        border-bottom: 1px solid var(--border);
+        background: rgba(0, 0, 0, 0.2);
       }
       
-      .stat-card-pro .sc-sub {
-        font-size: 0.55rem;
+      .stage-lb-table td {
+        padding: 8px 10px;
+        border-bottom: 1px solid rgba(0, 212, 255, 0.03);
         color: var(--t2);
-        margin-top: 2px;
+        vertical-align: middle;
       }
       
-      .stat-card-pro .sc-trend {
-        font-size: 0.6rem;
+      .stage-lb-table tr {
+        transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+        animation: rowSlide 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+      
+      .stage-lb-table tr:hover {
+        background: rgba(0, 212, 255, 0.03);
+      }
+      
+      .stage-lb-table tr.me {
+        background: rgba(255, 215, 0, 0.05);
+        border-left: 3px solid var(--gold);
+      }
+      
+      .stage-lb-table .rank-cell {
+        font-family: 'Oswald', sans-serif;
         font-weight: 700;
-        margin-top: 4px;
-        display: inline-block;
-        padding: 2px 10px;
-        border-radius: 20px;
+        font-size: 0.9rem;
+        width: 30px;
+        text-align: center;
+        color: var(--t3);
       }
       
-      .stat-card-pro .sc-trend.up {
-        background: rgba(0, 230, 118, 0.1);
+      .stage-lb-table .rank-cell.gold { color: var(--gold); }
+      .stage-lb-table .rank-cell.silver { color: #C0D0E0; }
+      .stage-lb-table .rank-cell.bronze { color: #CD7F50; }
+      
+      .stage-lb-table .player-cell {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 600;
+      }
+      
+      .stage-lb-table .player-cell .av {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--cyan), var(--gold));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        font-size: 0.6rem;
+        color: var(--bg);
+        flex-shrink: 0;
+      }
+      
+      .stage-lb-table .player-cell .you-badge {
+        font-size: 0.45rem;
+        background: rgba(0, 212, 255, 0.1);
+        color: var(--cyan);
+        padding: 1px 6px;
+        border-radius: 10px;
+        border: 1px solid rgba(0, 212, 255, 0.08);
+        font-weight: 700;
+      }
+      
+      .stage-lb-table .stat-badge {
+        font-size: 0.5rem;
+        padding: 2px 8px;
+        border-radius: 12px;
+        font-weight: 700;
+        white-space: nowrap;
+      }
+      
+      .stage-lb-table .stat-badge.exact {
+        background: rgba(0, 230, 118, 0.06);
         color: var(--green);
       }
       
-      .stat-card-pro .sc-trend.down {
-        background: rgba(255, 82, 82, 0.1);
+      .stage-lb-table .stat-badge.correct {
+        background: rgba(255, 215, 0, 0.06);
+        color: var(--gold);
+      }
+      
+      .stage-lb-table .stat-badge.wrong {
+        background: rgba(255, 82, 82, 0.06);
         color: var(--red);
       }
       
-      .stat-card-pro .sc-trend.same {
-        background: rgba(255, 255, 255, 0.03);
-        color: var(--t3);
+      .stage-lb-table .stat-badge.pending {
+        background: rgba(255, 152, 0, 0.06);
+        color: var(--orange);
       }
       
-      .breakdown-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        gap: 10px;
-      }
-      
-      .breakdown-card {
-        background: rgba(0, 0, 0, 0.3);
-        border: 1px solid var(--border);
-        border-radius: var(--r);
-        padding: 12px;
-        text-align: center;
-        transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-        animation: cardPop 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
-      }
-      
-      .breakdown-card:hover {
-        transform: translateY(-2px) scale(1.02);
-        border-color: var(--border2);
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-      }
-      
-      @keyframes cardPop {
-        from { opacity: 0; transform: scale(0.95); }
-        to { opacity: 1; transform: scale(1); }
-      }
-      
-      .breakdown-card .bd-stage {
-        font-size: 0.55rem;
-        color: var(--t3);
-        text-transform: uppercase;
-        font-weight: 700;
-        letter-spacing: 0.04em;
-      }
-      
-      .breakdown-card .bd-points {
+      .stage-lb-table .points-cell {
         font-family: 'Oswald', sans-serif;
-        font-size: 1.6rem;
         font-weight: 700;
-        line-height: 1.3;
+        font-size: 1.1rem;
+        color: var(--gold);
+        text-align: right;
+        min-width: 40px;
       }
       
-      .breakdown-card .bd-details {
-        font-size: 0.55rem;
-        color: var(--t2);
-        margin-top: 4px;
-        display: flex;
-        justify-content: center;
-        gap: 8px;
-        flex-wrap: wrap;
-      }
-      
-      .breakdown-card .bd-details span {
-        background: rgba(255, 255, 255, 0.03);
-        padding: 2px 8px;
-        border-radius: 12px;
-      }
-      
-      .stage-lb-tabs {
-        display: flex;
-        gap: 6px;
-        flex-wrap: wrap;
-        margin-bottom: 14px;
-      }
-      
-      .stage-lb-tabs .chip {
-        cursor: pointer;
-        transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-      }
-      
-      .stage-lb-tabs .chip:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 15px rgba(0, 212, 255, 0.15);
-      }
-      
-      .stage-lb-tabs .chip.active {
-        background: var(--cdim);
-        border-color: var(--cyan);
+      .stage-lb-table .accuracy-cell {
+        font-weight: 700;
         color: var(--cyan);
-        box-shadow: var(--cglow);
+        text-align: center;
+        min-width: 50px;
       }
       
-      .stage-lb-container {
-        animation: fadeInUp 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+      .stage-lb-table .medal {
+        font-size: 0.9rem;
+      }
+      
+      .stage-lb-empty {
+        text-align: center;
+        padding: 30px 16px;
+        color: var(--t3);
+      }
+      
+      .stage-lb-empty .ei {
+        font-size: 2rem;
+        display: block;
+        margin-bottom: 8px;
+        opacity: 0.5;
+      }
+      
+      .stage-lb-empty .et {
+        font-size: 0.82rem;
+      }
+      
+      @keyframes rowSlide {
+        from { opacity: 0; transform: translateX(-10px); }
+        to { opacity: 1; transform: translateX(0); }
       }
       
       /* Mobile Responsive */
       @media (max-width: 768px) {
-        .stat-grid {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 8px;
+        .stage-lb-table {
+          font-size: 0.6rem;
         }
         
-        .stat-card-pro .sc-val {
-          font-size: 1.4rem;
+        .stage-lb-table th,
+        .stage-lb-table td {
+          padding: 5px 6px;
         }
         
-        .breakdown-grid {
-          grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-          gap: 8px;
+        .stage-lb-table .player-cell .av {
+          width: 22px;
+          height: 22px;
+          font-size: 0.5rem;
         }
         
-        .breakdown-card .bd-points {
-          font-size: 1.2rem;
+        .stage-lb-table .points-cell {
+          font-size: 0.9rem;
+          min-width: 30px;
         }
         
-        .stage-lb-tabs {
-          gap: 4px;
+        .stage-lb-table .stat-badge {
+          font-size: 0.4rem;
+          padding: 1px 5px;
         }
         
-        .stage-lb-tabs .chip {
-          font-size: 0.55rem;
-          padding: 4px 10px;
-          min-height: 26px;
+        .stage-lb-table .rank-cell {
+          font-size: 0.7rem;
+          width: 22px;
+        }
+        
+        .stage-lb-table .accuracy-cell {
+          min-width: 35px;
+          font-size: 0.6rem;
         }
       }
       
       @media (max-width: 480px) {
-        .stat-grid {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 6px;
+        .stage-lb-table {
+          font-size: 0.5rem;
         }
         
-        .stat-card-pro {
-          padding: 10px 8px;
+        .stage-lb-table th,
+        .stage-lb-table td {
+          padding: 4px 4px;
         }
         
-        .stat-card-pro .sc-val {
-          font-size: 1.1rem;
-        }
-        
-        .stat-card-pro .sc-icon {
-          font-size: 1rem;
-        }
-        
-        .breakdown-grid {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 6px;
-        }
-        
-        .breakdown-card {
-          padding: 8px;
-        }
-        
-        .breakdown-card .bd-points {
-          font-size: 1rem;
-        }
-        
-        .breakdown-card .bd-details {
-          font-size: 0.45rem;
+        .stage-lb-table .player-cell {
           gap: 4px;
         }
         
-        .stage-lb-tabs .chip {
-          font-size: 0.45rem;
-          padding: 3px 8px;
-          min-height: 22px;
+        .stage-lb-table .player-cell .av {
+          width: 18px;
+          height: 18px;
+          font-size: 0.4rem;
+        }
+        
+        .stage-lb-table .points-cell {
+          font-size: 0.7rem;
+          min-width: 24px;
+        }
+        
+        .stage-lb-table .stat-badge {
+          font-size: 0.35rem;
+          padding: 1px 3px;
+        }
+        
+        .stage-lb-table .rank-cell {
+          font-size: 0.6rem;
+          width: 18px;
+        }
+        
+        .stage-lb-table .accuracy-cell {
+          min-width: 28px;
+          font-size: 0.5rem;
+        }
+        
+        .stage-lb-table .medal {
+          font-size: 0.6rem;
         }
       }
     </style>
-    
-    <div class="matchday-stats">
   `;
-
-  // === STAT GRID ===
-  h += '<div class="stat-grid">';
   
-  // Total Points
+  if (!hasData) {
+    h += `
+      <div class="stage-lb-empty">
+        <span class="ei">📭</span>
+        <div class="et">No data available for ${stage}</div>
+      </div>
+    `;
+    container.innerHTML = h;
+    return;
+  }
+  
   h += `
-    <div class="stat-card-pro">
-      <span class="sc-icon">⭐</span>
-      <div class="sc-val" id="statTotalPoints">${total}</div>
-      <div class="sc-lbl">Total Points</div>
-      <div class="sc-sub">Avg ${avg} per stage</div>
-    </div>
+    <table class="stage-lb-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Player</th>
+          <th style="text-align:center;">Picks</th>
+          <th style="text-align:center;">🎯 Exact</th>
+          <th style="text-align:center;">✅ Correct</th>
+          <th style="text-align:center;">❌ Wrong</th>
+          <th style="text-align:center;">⏳ Pending</th>
+          <th style="text-align:center;">🎯 Acc</th>
+          <th style="text-align:right;">Pts</th>
+        </tr>
+      </thead>
+      <tbody>
   `;
   
-  // Predictions Made (Total matches 14 / Predictions Made)
-  h += `
-    <div class="stat-card-pro">
-      <span class="sc-icon">📋</span>
-      <div class="sc-val">${totalPreds}<span class="sc-of">/${totalMatches}</span></div>
-      <div class="sc-lbl">Predictions Made</div>
-      <div class="sc-sub">${Math.round((totalPreds / totalMatches) * 100)}% completion</div>
-    </div>
-  `;
-  
-  // Pending Results
-  h += `
-    <div class="stat-card-pro">
-      <span class="sc-icon">⏳</span>
-      <div class="sc-val" style="color:var(--orange);">${pendingPreds}</div>
-      <div class="sc-lbl">Pending Results</div>
-      <div class="sc-sub">Waiting for match completion</div>
-    </div>
-  `;
-  
-  // Accuracy
-  const trend = accuracy >= 50 ? 'up' : accuracy >= 30 ? 'same' : 'down';
-  h += `
-    <div class="stat-card-pro">
-      <span class="sc-icon">🎯</span>
-      <div class="sc-val" style="color:var(--gold);">${accuracy}%</div>
-      <div class="sc-lbl">Accuracy</div>
-      <div class="sc-trend ${trend}">${accuracy >= 50 ? '🔥 On Fire!' : accuracy >= 30 ? '📊 Steady' : '📉 Needs Improvement'}</div>
-    </div>
-  `;
-  
-  h += '</div>';
-  
-  // === SECONDARY STATS ===
-  h += '<div class="stat-grid">';
-  
-  // Exact Scores
-  h += `
-    <div class="stat-card-pro">
-      <span class="sc-icon">🎯</span>
-      <div class="sc-val" style="color:var(--green);">${exact}</div>
-      <div class="sc-lbl">Exact Scores</div>
-      <div class="sc-sub">${exact * 5} points earned</div>
-    </div>
-  `;
-  
-  // Correct Results
-  h += `
-    <div class="stat-card-pro">
-      <span class="sc-icon">✅</span>
-      <div class="sc-val" style="color:var(--gold);">${correct}</div>
-      <div class="sc-lbl">Correct Results</div>
-      <div class="sc-sub">${correct} points earned</div>
-    </div>
-  `;
-  
-  // Wrong Predictions
-  h += `
-    <div class="stat-card-pro">
-      <span class="sc-icon">❌</span>
-      <div class="sc-val" style="color:var(--red);">${wrong}</div>
-      <div class="sc-lbl">Wrong Predictions</div>
-      <div class="sc-sub">${totalPreds > 0 ? Math.round((wrong / totalPreds) * 100) : 0}% miss rate</div>
-    </div>
-  `;
-  
-  // Best Matchday
-  h += `
-    <div class="stat-card-pro">
-      <span class="sc-icon">📈</span>
-      <div class="sc-val" style="color:var(--cyan);font-size:1.2rem;">${best}</div>
-      <div class="sc-lbl">Best Matchday</div>
-      <div class="sc-sub">${stagePoints[best] || 0} points earned</div>
-    </div>
-  `;
-  
-  h += '</div>';
-
-  // === MATCHDAY BREAKDOWN (Rank removed) ===
-  h += `
-    <div style="background:rgba(14,34,51,.8);border:1px solid var(--border);border-radius:var(--rl);padding:16px;margin-bottom:16px;">
-      <div class="section-title" style="margin-bottom:14px;">📅 Matchday Breakdown</div>
-      <div class="breakdown-grid">
-  `;
-  
-  stages.forEach((s, idx) => {
-    const pts = stagePoints[s] || 0;
-    const predData = stagePredictions[s] || { total: 0, correct: 0, exact: 0, wrong: 0, pending: 0 };
-    const acc = stageAccuracy[s] || 0;
-    const matches = stageMatches[s] || 0;
-    const completion = matches > 0 ? Math.round((predData.total / matches) * 100) : 0;
-    
-    const delay = idx * 0.05;
+  leaderboard.forEach((p, i) => {
+    const rank = i + 1;
+    const isMe = CU && String(p.id) === String(CU.id);
+    const posClass = rank === 1 ? 'gold' : rank === 2 ? 'silver' : rank === 3 ? 'bronze' : '';
+    const medal = rank === 1 ? '🥇' : rank === 2 ? '🥈' : rank === 3 ? '🥉' : '';
+    const init = (p.name || 'U')[0].toUpperCase();
+    const delay = i * 0.03;
     
     h += `
-      <div class="breakdown-card" style="animation-delay:${delay}s">
-        <div class="bd-stage">${s}</div>
-        <div class="bd-points" style="color:${pts > 0 ? 'var(--gold)' : 'var(--t3)'};">${pts} pts</div>
-        <div class="bd-details">
-          <span>📋 ${predData.total} picks</span>
-          <span>🎯 ${acc}%</span>
-        </div>
-        <div class="bd-details" style="font-size:0.5rem;color:var(--t3);">
-          <span>✅ ${predData.correct} correct</span>
-          <span>🎯 ${predData.exact} exact</span>
-          <span>⏳ ${predData.pending} pending</span>
-        </div>
-        <div style="margin-top:6px;height:3px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden;">
-          <div style="height:100%;width:${completion}%;background:linear-gradient(90deg,var(--cyan),var(--gold));border-radius:3px;transition:width 1.2s cubic-bezier(.22,1,.36,1);"></div>
-        </div>
-        <div style="font-size:0.45rem;color:var(--t3);margin-top:2px;">${completion}% completed</div>
-      </div>
+      <tr class="${isMe ? 'me' : ''}" style="animation-delay:${delay}s">
+        <td class="rank-cell ${posClass}">
+          ${medal ? `<span class="medal">${medal}</span>` : rank}
+        </td>
+        <td>
+          <div class="player-cell">
+            <div class="av">${rank <= 3 ? '' : init}</div>
+            ${p.name || 'Unknown'}
+            ${isMe ? '<span class="you-badge">YOU</span>' : ''}
+          </div>
+        </td>
+        <td style="text-align:center;font-weight:600;">${p.total || 0}</td>
+        <td style="text-align:center;"><span class="stat-badge exact">${p.exact || 0}</span></td>
+        <td style="text-align:center;"><span class="stat-badge correct">${p.correct || 0}</span></td>
+        <td style="text-align:center;"><span class="stat-badge wrong">${p.wrong || 0}</span></td>
+        <td style="text-align:center;"><span class="stat-badge pending">${p.pending || 0}</span></td>
+        <td class="accuracy-cell">${p.accuracy || 0}%</td>
+        <td class="points-cell">${p.points || 0}</td>
+      </tr>
     `;
   });
   
-  h += '</div></div>';
-
-  // === STAGE LEADERBOARD ===
-  h += `
-    <div style="background:rgba(14,34,51,.8);border:1px solid var(--border);border-radius:var(--rl);padding:16px;">
-      <div class="section-title" style="margin-bottom:14px;">🏆 Stage Leaderboard</div>
-      <div class="stage-lb-tabs">
-  `;
-  
-  const defaultStage = 'Group Stage';
-  stages.forEach(s => {
-    const isActive = s === defaultStage;
-    h += `<button class="chip${isActive ? ' active' : ''}" onclick="loadStageLeaderboard('${s}',this)" style="${isActive ? 'background:var(--cdim);border-color:var(--cyan);color:var(--cyan);' : ''}">${s}</button>`;
-  });
-  
-  h += '</div>';
-  h += '<div id="stageLBContainer" class="stage-lb-container"><div class="empty-state"><span class="ei">⏳</span><div class="et">Loading Group Stage...</div></div></div>';
-  h += '</div></div>';
-  
+  h += '</tbody></table>';
   container.innerHTML = h;
-  
-  // Animate numbers with counter
-  setTimeout(animateNumbers, 100);
-  
-  // Auto-load Group Stage leaderboard
-  setTimeout(() => {
-    const defaultBtn = document.querySelector('#tabMatchday .chip.active');
-    if (defaultBtn) {
-      loadStageLeaderboard('Group Stage', defaultBtn);
-    } else {
-      loadStageLeaderboard('Group Stage', null);
-    }
-  }, 300);
 }
 
 
